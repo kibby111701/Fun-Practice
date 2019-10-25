@@ -5,6 +5,9 @@ public class Car{
     private double tankSize;
     private double time;
 
+    public static final double LITERS_TO_GALLONS = 0.264172;
+    public static final double TEST_SPEED = 60.0;
+
     public Car(String model, String type, double tankSize, double time){
         this.model = model;
         this.type = type;
@@ -21,12 +24,12 @@ public class Car{
     }
 
     private double convertTank(double tankSize){
-        return 0.264172 * tankSize;
+        return LITERS_TO_GALLONS * tankSize;
 
     }
 
     public double milesPerGallon(){
-        return (60 * time)/convertTank(tankSize);
+        return (TEST_SPEED * time)/convertTank(tankSize);
     }
 
     public String meetsStandards(){
